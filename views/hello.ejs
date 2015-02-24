@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<title>This is the store with Angular!</title>
+
+		<!-- Viewport mobile tag for sensible mobile support -->
+		<!--<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>-->
+		<link rel="stylesheet" href="/styles/bootstrap.min.css">
+
+	</head>
+	<body  ng-controller="StoreController as store">
+		<h1>Here is your gem Page</h1>	
+		<p>{{"hello"+" you"}}</p>
+		<div ng-repeat="product in gems">
+
+		<h1>{{product.name}} </h1> 
+		<h2>{{product.price}}</h2>
+		<p> {{product.description}} </p>
+		<button ng-show="product.canPurchase"> Add to Cart </button>
+		</div>
+
+		<!--SCRIPTS-->
+		<script src="/js/dependencies/sails.io.js"></script>
+		<script src="/js/dependencies/angular.js"></script>
+		<script src="/js/public/signup/SignupModule.js"></script>
+		<script src="/js/public/hello/StoreModule.js"></script>
+		<script src="/js/public/hello/StoreController.js"></script>
+		<script src="/js/public/signup/SignupController.js"></script>
+		<!--SCRIPTS END-->
+		
+
+	</body>
+
+</html>
