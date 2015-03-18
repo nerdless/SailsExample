@@ -24,7 +24,7 @@ module.exports = {
 	findUserbyNumber:function(req,res)
   {
     var id = req.param('id');
-    User.findOne({empnum:id})
+    User.findOne({id:id})
         .exec(function(err,user){
 
           if(err)
