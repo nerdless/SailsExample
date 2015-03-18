@@ -9,9 +9,12 @@ module.exports = {
 	findClosestDrivers:function(req, res)
 	{
 		
-		var latitude = req.param('latitude');
-		var longitude = req.param('longitude');
-		var dist = 0.0015;
+		//var latitude =  req.param('latitude');
+		//var longitude = req.param('longitude');
+    var latitude =  parseFloat(req.param('latitude'));
+    var longitude = parseFloat(req.param('longitude'));
+
+		var dist = 0.002;
     //var latitude = 19.4413945;
     //var longitude = -99.1811955;
     //var latitude = 19.430685;
@@ -30,12 +33,13 @@ module.exports = {
             var j = drivers.length;
 
             while (i < j) {
-              //if(true){            && i.longitude < longitude)
-              if (drivers[i].latitude < latitude -dist || drivers[i].latitude > latitude + dist || drivers[i].longitude < longitude - dist && drivers[i].longitude > latitude + dist) {
+              //if(true){          // && i.longitude < longitude)
+              if (drivers[i].latitude < (latitude - dist) || drivers[i].latitude > (latitude + dist) || drivers[i].longitude < (longitude - dist) || drivers[i].longitude > (longitude + dist)) 
+              {
                 drivers.splice(i,1);
                 j -= 1;
                 i -= 1;
-                //res.send("quitaste uno")
+                //console.log("los drives son " + drivers)
               }
               i +=1;
             }
